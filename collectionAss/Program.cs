@@ -84,6 +84,37 @@ namespace collectionAss
             #endregion
 
 
+            #region Q03
+            /* 3.implement a custom list called FixedSizeList<T> with a predetermined capacity.This list 
+             * should not allow more elements than its capacity 
+             * and should provide clear messages if one tries to exceed it or access invalid indices.
+             Requirements:
+             1.Create a generic class named FixedSizeList<T>.
+             2.	Implement a constructor that takes the fixed capacity of the list as a
+             parameter.
+             3.Implement an Add method that adds an element to the list, but throws an exception 
+            if the list is already full.
+            4.Implement a Get method that retrieves an element at a specific index in the list but 
+            throws an exception for invalid indices.*/
+            try
+            {
+                FixedSizeList<int> fixedSize = new FixedSizeList<int>(2);
+                fixedSize.Add(1);
+                fixedSize.Add(2);
+                //fixedSize.Add(2);    for test try catch
+
+            }
+
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+
+            }
+
+            #endregion
+
+
+
             #endregion
 
         }
