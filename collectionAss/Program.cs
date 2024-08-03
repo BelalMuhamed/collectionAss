@@ -50,6 +50,38 @@ namespace collectionAss
 
 
         }
+
+        static int FirstNonRepeatedCharacterIndex(string s)
+        {
+            if (string.IsNullOrEmpty(s))
+            {
+                return -1;
+            }
+
+            Dictionary<char, (int count, int index)> charCountMap = new Dictionary<char, (int, int)>();
+
+            for (int i = 0; i < s.Length; i++)
+            {
+                char c = s[i];
+                if (charCountMap.ContainsKey(c))
+                {
+                    charCountMap[c] = (charCountMap[c].count + 1, charCountMap[c].index);
+                }
+                else
+                {
+                    charCountMap[c] = (1, i);
+                }
+            }
+
+            foreach (var kvp in charCountMap)
+            {
+                if (kvp.Value.count == 1)
+                {
+                    return kvp.Value.index;
+                }
+            }
+            return -1;
+        }
         static void Main(string[] args)
         {
 
@@ -114,6 +146,14 @@ namespace collectionAss
             #endregion
 
 
+
+            #region Q04
+            /*4-Given a string, find the first non-repeated character in it and return its index.
+             * If there is no such character, return -1. Hint you can use dictionary*/
+            #endregion
+            string input = "GGhhhlmmni";
+            int index = FirstNonRepeatedCharacterIndex(input);
+            Console.WriteLine(index);
 
             #endregion
 
